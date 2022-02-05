@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise-1</title>
+</head>
+<body>
+    <script>
+        class Produk{
+
+            constructor(jenis, merek, stok){
+                this.jenis = jenis;
+                this.merek = merek;
+                this.stok = stok;
+            }
+
+            tambahStok(stokParam = 12){
+                let totalStok = this.stok + stokParam;
+                if(totalStok <= 100){
+                    this.stok = totalStok;
+                    console.log('stok berhasil ditambah!');
+                    console.log('jumlah stok saat ini adalah '+this.stok);
+                }else{
+                    console.log('stok tidak berhasil ditambah')
+                    console.log('jumlah stok saat ini '+this.stok);
+                }
+
+            }
+
+        }
+
+        const produk = new Produk();
+        produk.jenis = 'tv';
+        produk.merek = 'lg';
+        produk.stok = 40;
+        produk.tambahStok(100);
+
+    </script>
+</body>
+</html>

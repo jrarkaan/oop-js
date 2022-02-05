@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise-2</title>
+</head>
+<body>
+    <script>
+        // get and sett
+        class Produk{
+
+            constructor(sku, stok){
+                this.#setSku(sku);
+                this.#setStok(stok);
+            }
+
+            #setSku(skuParam){
+                const param = skuParam.slice(0, 3);
+                const param2 = skuParam.slice(3);
+                const check = /^[A-Z]*$/.test(param);
+                const check2 = /^-?\d*\.?\d*$/.test(param2);
+                if(!check){
+                    console.log('3 huruf awalan harus kapital');
+                }else if(!check2){
+                    console.log('3 huruf akhir harus angka');
+                }else{
+                    this.sku = skuParam;
+                }
+            }
+
+            #setStok(stokParam){
+                if(typeof(stokParam) !== "number"){
+                    console.log('tolong inputkan number/ numerik, bukan yang lain');
+                }else if(typeof(stokParam) === "number"){
+                    if(stokParam < 0){
+                        console.log('jangan input bilangan negatif');
+                    }else{
+                        this.stok = stokParam;
+                    }
+                }
+            }
+
+            getSku(){
+                if(this.sku === undefined){
+                    return -1;
+                }else{
+                    console.log(`${this.sku} adalah sku saat ini`);
+                }
+            }
+
+            getStok(){
+                if(this.stok === undefined){
+                    return -1;
+                }else{
+                    console.log(`stok saat ini adalah ${this.stok}`);
+                }
+            }
+
+        }
+
+        const produk01 = new Produk("001023", 100);
+        produk01.getSku();
+        produk01.getStok();
+
+    </script>
+</body>
+</html>
